@@ -1,0 +1,15 @@
+	  setData(var, arrayObj, varMap) {
+    const resultArr: any = [];
+    arrayObj.map((resp: any) => {
+    const obj = {};
+      var.map((res: any) => {
+        if (resp[res] !== undefined && resp[res] !== null) {
+            obj[varMap.get(res)] = resp[res];
+        } else {
+          obj[varMap.get(res)] = null;
+        }
+      });
+      resultArr.push(obj);
+    });
+    return resultArr;
+  }
