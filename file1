@@ -1,0 +1,60 @@
+Guide:
+CODING GUIDELINES
+
+1. Install TSLINT in .CODE and check properly while writing code, In application we should not have any LINT errors.
+
+2. All 3rd party dependency must be declared in Hodler.module.ts file only.
+
+3. All material design components are defined in material.module.ts, use that module only, if anything is missing
+
+from material component CSS perspective import it in material.module.ts.
+
+4. All angular modules, our custom modules, components or services and directives used on global level which we have written must be
+
+part app.module.ts.
+
+5. All component or services which are created for one feature module (eg- psm.module.ts) must be declared in same module.
+
+6. All reusable functions like using session storage or local storage must be created only once inside shared services.
+
+7. Shared module is created to hold shared functionalities between different modules so declared such function in shared
+
+service only.
+
+8. All features modules must import only Holder or Shared module, material module is already part of holder module so
+
+it will be available  for all modules.
+
+9. All global components like spinner or dialog box will be created in component folder only and must be injected as per
+
+above guidelines.
+
+10. All component must implement OnDestroy lifecycle method if component has subscribed to any service. In OnDestroy method
+
+it must unsubscribe to all observables.
+
+11. No PLAIN JAVASCRIPT DOM MANIPULATION like document.getElementById etc will be written in TS files, rather user angular
+
+renderer2, or native element properties.
+
+12. No var type will be used in TS, use const or let only.
+
+13. No JSON or array will be used without a model.
+
+14. While developing CSS or functionalities check no other written code is breaking.
+
+15. All API calls must be made through HTTPCOMMONSERVICES. Donot use HTTPCLIENT directly.
+
+16. Donot changes any functions or SCSS on global level without discussion with team.
+
+17. At regular intervals generate prod files using ng --prod and run it with lite-server or http-server on dist file generated,
+
+and do a sanity check, if everything is working.
+
+18. All base URL of server will be declared in environment.ts use those URL to connect to API's.
+
+19. All names in Ts files will follow camel-case.
+
+20. All id and class names will be in lower case separated by - . Keep all class and id name unique to your component
+
+for which you can start names with your screen name.
